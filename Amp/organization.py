@@ -1,10 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
-#graphกูยาวชิบหายเลยวะสัส
-#sol1 เปลี่ยนx scale
-#sol2 maket the text less longer
-
 #--------Organization Graph-----------
 
 df = pd.read_csv("cleaned_goleta_permits - Goleta_Zoning_Permits.csv")
