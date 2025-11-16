@@ -10,21 +10,24 @@ df["Name"] = df["First Name"].str.capitalize() + " " + df["Last Name"].str.capit
 count = df["Name"].value_counts().sort_values() #56 people
 print(type(count))
 
+# count_topten = count[46:56:][:]
+# print(count_topten)
+
 bar_height = 0.7
 bar_color = "#307473"
 
-fig, ax = plt.subplots()
+fig = plt.Figure(figsize=(20, 10))
 
-graph1 = plt.barh(count.index, count.values, height=bar_height, color=bar_color, align='edge')
+graph1 = plt.barh(count.index, count.values, height=bar_height, color=bar_color, align='center')
 # #
-plt.title("Top ten people who have requested a permit")
+plt.title("Most people who have requested a permit")
 plt.xlabel("Permits Requested")
 plt.ylabel("people")
 
 plt.xticks(fontsize = 6)
-plt.yticks(fontsize = 10)
-# plt.tick_params(labelleft=False)
-plt.ylim(len(count) - 10, len(count)) #top 10
+plt.yticks(fontsize = 3)
+
+#plt.ylim(len(count) - 11, len(count)) #top 10
 # #
 count_topten = count[46:56:][:]
 name_dict = dict(count_topten)
@@ -38,12 +41,5 @@ name_dict = dict(count_topten)
 #     y_pos = 0 #starting
 #     plt.text(x_pos, name, name, fontsize = 10)
 #     y_pos += bar_height
-
-#--------graph2-----------
-
-organization = df["Organization Name"].value_counts().sort_values()
-print(organization)
-
-graph2 = plt.barh(organization.index, organization.values, height=bar_height, color=bar_color, align='edge')
 
 plt.show()
